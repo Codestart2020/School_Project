@@ -1,0 +1,4 @@
+/Users/jemonnixon/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Users/jemonnixon/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S "/Users/jemonnixon/Library/CloudStorage/OneDrive-TheCityUniversityofNewYork/fall 2023/csc 331/Project#4" -B "/Users/jemonnixon/Library/CloudStorage/OneDrive-TheCityUniversityofNewYork/fall 2023/csc 331/Project#4/cmake-build-debug"
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/jemonnixon/Library/CloudStorage/OneDrive-TheCityUniversityofNewYork/fall 2023/csc 331/Project#4/cmake-build-debug

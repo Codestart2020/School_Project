@@ -1,0 +1,38 @@
+Your task for this assignment is to develop an e-bike repair scheduling application. The
+application will use an array-based heap to implement a priority queue data structure in C++.
+This will be accomplished utilizing predefined C++ heap class.
+
+
+
+
+1. Implement a transaction-based priority queue data structure using C++. The program will
+be interactive. A prompt will be displayed requesting an input transaction. Each input
+transaction will be entered at the command line and results will be displayed on the
+console.
+
+
+
+2. Each input transaction will represent a new e-bike repair order to be scheduled or a
+“service” command.
+
+
+
+
+A new e-bike repair order will be represented as a single string comprised of three parts
+separated by hyphens: a one digit priority code (‘1’, ‘2’ or ‘3’, based on warranty and/or
+age of e-bike), a two digit ticket number in ascending sequence and a variable length
+customer name. Each repair order will be scheduled based on its priority and the
+sequential ticket (i.e., first-come-first-served). All repair orders are placed in a single
+priority queue. Each e-bike will be serviced by the next available repair technician.
+A transaction that contains a “service” command results in a repair order being removed
+from the priority queue and the customer name being displayed on the console. A
+transaction containing the string “end-of-file” will signal the end of the input. Display the
+number of repair orders remaining in the queue when the “end-of-file” transaction is
+processed.
+
+
+
+3. The program will be run at the command prompt by navigating to the directory
+containing the executable version of the program after the program is compiled. Assume
+that each transaction is prepared properly. Use an array with a capacity for 10 repair
+orders. Display “Error: queue is empty” and “Error: queue is full” messages as needed

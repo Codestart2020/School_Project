@@ -1,0 +1,48 @@
+if(!exists(partID))
+    {
+        // create a new node
+        partType *newNode = new partType;
+        newNode->partID_pt = partID;
+        newNode->qty_pt = qty;
+        newNode->next_pt = NULL;
+
+// if list is empty, make first and last point to the new node
+      if(first == NULL)
+      {
+          first = last = newNode;
+      }
+      else
+      {
+          last->next_pt = newNode;
+          last = newNode;
+          cout << "transaction processed" << endl;
+
+      }
+
+
+    } else
+    {
+            // if part ID exists then add the qty to the existing qty if the qty is greater than 100 don't add it
+            // and print a message saying that the qty is greater than 100.
+
+            partType *current = first;
+            while(current != NULL)
+            {
+                if(current->partID_pt == partID)
+                {
+                  
+                   
+                    if(current->qty_pt + qty > 100)
+                    {
+                        cout << "transaction not processed due to excessive quantity" << endl;
+                    }
+                    else
+                    {
+                        current->qty_pt += qty;
+                      cout << "transaction processed" << endl;
+                    }
+                }
+                current = current->next_pt;
+            }
+        return;
+    }

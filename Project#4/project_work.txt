@@ -1,0 +1,114 @@
+
+
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+struct RepairOrder {
+    int priority;
+    int ticketNumber;
+    string customerName;
+};
+
+struct CompareRepairOrder {
+    bool operator()(const RepairOrder& order1, const RepairOrder& order2) {
+        if (order1.priority == order2.priority) {
+            return order1.ticketNumber > order2.ticketNumber;
+        }
+        return order1.priority > order2.priority;
+    }
+};
+
+int main() {
+    priority_queue<RepairOrder, vector<RepairOrder>, CompareRepairOrder> repairQueue;
+
+    while (true) {
+        cout << "Enter transaction type (order, service, eof): ";
+        string transactionType;
+        getline(cin, transactionType);
+
+        if (transactionType == "order") {
+            if (repairQueue.size() >= 10) {
+                cout << "Error: queue is full" << endl;
+                continue;
+            }
+
+            cout << "Enter priority: ";
+            int priority;
+            cin >> priority;
+
+            cout << "Enter ticket number: ";
+            int ticketNumber;
+            cin >> ticketNumber;
+
+            cin.ignore(); // Ignore the newline character
+
+            cout << "Enter customer name: ";
+            string customerName;
+            getline(cin, customerName);
+
+            RepairOrder newOrder;
+            newOrder.priority = priority;
+            newOrder.ticketNumber = ticketNumber;
+            newOrder.customerName = customerName;
+
+            repairQueue.push(newOrder);
+        }
+        else if (transactionType == "service") {
+            if (repairQueue.empty()) {
+                cout << "Error: queue is empty" << endl;
+            }
+            else {
+                RepairOrder nextOrder = repairQueue.top();
+                repairQueue.pop();
+                cout << "Servicing repair order for " << nextOrder.customerName << endl;
+            }
+        }
+        else if (transactionType == "eof") {
+            cout << "There are " << repairQueue.size() << " remaining repair orders in the queue." << endl;
+            break;
+        }
+        else {
+            cout << "Invalid transaction type" << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+
+  try {
+                int priority = stoi(priorityStr);
+                int ticketNumber = stoi(ticketNumberStr);
+
+                if (priority < 1 || priority > 3) {
+                    cout << "Error: priority must be 1, 2, or 3" << endl;
+                    continue;
+                }
+
+
+                // check if the ticket number is negative
+                if (ticketNumber < 0) {
+                    cout << "Error: ticket number cannot be negative" << endl;
+                    continue;
+                }
+
+                if (customerName.empty()) {
+                    cout << "Error: customer name cannot be empty" << endl;
+                    continue;
+                }
+
+                RepairOrder newOrder;
+                newOrder.priority = priority;
+                newOrder.ticketNumber = ticketNumber;
+                newOrder.customerName = customerName;
+
+                repairQueue.push(newOrder);
+            }
+            catch (invalid_argument& e) {
+                cout << "Error: priority and ticket number must be numbers" << endl;
+            }
+        }
